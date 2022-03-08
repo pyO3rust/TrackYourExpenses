@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 
 //useState to actually bring out the changes in the variable
 
@@ -12,28 +12,21 @@ const ExpenseItem = (props) => {
   // const expenseDate = new Date(2022, 3, 2);
   // const expenseTitle = "Car Insurance";
   // const expenseAmount = 290.67;
-  //props arestorere used to pass data from component a to b(forward)
+  //props are used to pass data from component a to b(forward)
   //useState actually returns an array thus we can do array destructuring
   //title- current status value, setTitle- function for updating the value
-
-  const [title, setTitle] = useState(props.title);
-
-  // console.log("this will get printed");
-
-  const clickHandler = () => {
-    setTitle("updated!!");
-    // console.log(title);
-  };
+  console.log("In the Expense Item");
 
   return (
-    <Card className="expense-item">
-      <ExpenseDate date={props.date} />
-      <div className="expense-item__description">
-        <h2 className="expense-item">{title}</h2>
-        <div className="expense-item__price">${props.amount}</div>
-      </div>
-      <button onClick={clickHandler}>Change Title</button>
-    </Card>
+    <li>
+      <Card className="expense-item">
+        <ExpenseDate date={props.date} />
+        <div className="expense-item__description">
+          <h2 className="expense-item">{props.title}</h2>
+          <div className="expense-item__price">${props.amount}</div>
+        </div>
+      </Card>
+    </li>
   );
 };
 
